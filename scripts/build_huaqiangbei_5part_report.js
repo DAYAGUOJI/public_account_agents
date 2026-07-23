@@ -138,20 +138,7 @@ const spec = {
   ],
 };
 
-let html = renderArticle(spec);
-html = html.replace(
-  /<h2 style="margin: 0; padding: 0; font-size: 20px; line-height: 1\.35; font-weight: 700; letter-spacing: 0\.3px; color: #0A84FF;">/g,
-  '<h2 style="margin: 0; padding: 0; font-size: 32px; line-height: 1.18; font-weight: 800; letter-spacing: 0; color: #0A84FF;">'
-);
-
-for (const part of ["PART 01", "PART 02", "PART 03", "PART 04", "PART 05"]) {
-  html = html.replace(
-    `<section style="box-sizing: border-box; margin: 28px 8px 18px 8px; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; text-align: left;">
-  <p style="margin: 0 0 8px 0; padding: 0; font-size: 11px; line-height: 1.4; letter-spacing: 1.4px; opacity: 0.45; font-family: 'SF Mono', Consolas, Menlo, monospace;">${part}</p>`,
-    `<section style="box-sizing: border-box; margin: 34px 8px 22px 8px; padding: 26px 22px 24px 22px; border-radius: 24px; border: 1px solid rgba(10, 132, 255, 0.16); background-color: rgba(10, 132, 255, 0.055); box-shadow: 0 12px 32px rgba(10, 132, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.035); font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; text-align: left;">
-  <p style="margin: 0 0 10px 0; padding: 0; font-size: 11px; line-height: 1.4; letter-spacing: 1.4px; color: #0A84FF; opacity: 0.72; font-family: 'SF Mono', Consolas, Menlo, monospace;">${part}</p>`
-  );
-}
+const html = renderArticle(spec);
 
 const script = buildConsoleScript(html, { directInsert: spec.directInsert });
 

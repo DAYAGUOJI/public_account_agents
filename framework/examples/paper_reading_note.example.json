@@ -1,0 +1,58 @@
+{
+  "mode": "paper_reading",
+  "paper": {
+    "noteNo": "No.01",
+    "title": "Example Paper Title",
+    "journal": "Example Conference 2026",
+    "authors": "A. Author, B. Author",
+    "keywords": ["keyword one", "keyword two", "keyword three"],
+    "publicationDate": "2026",
+    "doi": "",
+    "url": "https://example.com/paper"
+  },
+  "readingNote": {
+    "introduction": {
+      "motivation": [
+        "现有方法在真实场景中仍面临数据稀疏、泛化不足或部署成本较高的问题。"
+      ],
+      "goal": [
+        "论文希望提出一种更稳健的建模框架，用于提升目标任务在复杂场景下的表现。"
+      ],
+      "task": [
+        "作者将问题拆解为数据表示、模型训练和实验验证三个环节。"
+      ]
+    },
+    "relatedWork": [
+      "论文主要对比了传统方法、近期深度学习方法以及面向真实应用的系统化方案。"
+    ],
+    "methodology": [
+      "方法部分包含输入表示、核心模型、训练目标和评估协议四个步骤。",
+      "其中最关键的设计是把原始问题转化为可学习的中间表示，再通过下游任务验证有效性。"
+    ],
+    "implementation": [
+      "实验在多个公开数据集上进行，结果用于说明方法在准确性和稳定性上的改进。",
+      "应用层面的启示是：该方法更适合数据质量可控、评估指标明确的场景。"
+    ]
+  },
+  "materials": {
+    "figures": [
+      {
+        "id": "FIG_01",
+        "caption": "论文方法流程图，建议放在研究方法后。",
+        "source": "paper figure 1",
+        "placeAfter": "methodology"
+      }
+    ],
+    "tables": []
+  },
+  "requirements": {
+    "audience": "课题组公众号读者",
+    "tone": "清楚、克制、适合科研公众号",
+    "targetLength": "1200-1800字",
+    "clientRequests": [],
+    "mustKeep": ["论文题目、作者、会议名需要人工核对。"],
+    "avoid": [
+      "不把实验结果扩展为未经验证的应用承诺。"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "articleId": "",
+  "publicationTitle": "",
+  "cover": {
+    "useCase": "ads-marketing",
+    "aspectRatio": "2.35:1",
+    "textInImage": false,
+    "brief": "",
+    "prompt": "",
+    "avoid": [
+      "文字",
+      "Logo",
+      "水印",
+      "AI 紫色渐变",
+      "与论文无关的未来城市"
+    ],
+    "outputPath": "assets/cover-wechat-landscape.png"
+  }
+}

@@ -5,7 +5,9 @@ const path = require("path");
 
 const FONT = "-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif";
 const MONO = "'SF Mono', Consolas, Menlo, monospace";
-const BLUE = "#0A84FF";
+// Brand token: section headings always use Apple Blue.
+// Keep this global and do not allow article-level specs to override it.
+const APPLE_BLUE = "#0A84FF";
 const PLACEHOLDER_IMG =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjYwNyIgdmlld0JveD0iMCAwIDEwODAgNjA3Ij48cmVjdCB3aWR0aD0iMTA4MCIgaGVpZ2h0PSI2MDciIGZpbGw9InJnYmEoMTI4LDEyOCwxMjgsMC4wOCkiLz48ZWxsaXBzZSBjeD0iNTQwIiBjeT0iMzAzLjUiIHJ4PSIxNDAiIHJ5PSIxNDAiIGZpbGw9InJnYmEoMTI4LDEyOCwxMjgsMC4xKSIvPjwvc3ZnPg==";
 
@@ -73,6 +75,30 @@ function card(block) {
 </section>`;
 }
 
+function plainSection(block) {
+  const title = block.title || "";
+  const match = title.match(/^(\d+(?:\.\d+)*)\s+(.+)$/u);
+  const number = block.number || (match ? match[1] : "");
+  const heading = match ? match[2] : title;
+  const body = lines(block.body || block.text)
+    .map(
+      (text) => `<p style="margin: 14px 0 0 0; padding: 0; font-size: 14px; opacity: 0.82; line-height: 1.85; letter-spacing: 0.3px; text-align: justify;">${inlineFormat(text)}</p>`
+    )
+    .join("");
+  return `
+<section style="box-sizing: border-box; margin: 30px 8px 20px 8px; font-family: ${FONT}; text-align: left;">
+  ${
+    heading
+      ? `<section style="box-sizing: border-box; display: flex; align-items: baseline; gap: 12px; margin: 0 0 12px 0;">
+    ${number ? `<span style="display: inline-block; flex-shrink: 0; font-size: 30px; line-height: 1; font-weight: 800; letter-spacing: -0.8px; color: ${APPLE_BLUE};">${escapeHtml(number)}</span>` : ""}
+    <h3 style="margin: 0; padding: 0; font-size: 15px; line-height: 1.5; font-weight: 700; letter-spacing: 0.2px; opacity: 0.92;">${escapeHtml(heading)}</h3>
+  </section>`
+      : ""
+  }
+  ${body}
+</section>`;
+}
+
 function editorNote(block) {
   const label = block.label || "EDITOR'S NOTE";
   const body = lines(block.body || block.text)
@@ -97,9 +123,9 @@ function sectionTitle(block) {
   return `
 <p><br></p>
 ${divider}
-<section style="box-sizing: border-box; margin: 28px 8px 18px 8px; padding: 0; font-family: ${FONT}; text-align: left;">
-  ${kicker ? `<p style="margin: 0 0 8px 0; padding: 0; font-size: 11px; line-height: 1.4; letter-spacing: 1.4px; opacity: 0.45; font-family: ${MONO};">${escapeHtml(kicker)}</p>` : ""}
-  <h2 style="margin: 0; padding: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: 0.3px; color: ${BLUE};">${escapeHtml(title)}</h2>
+<section style="box-sizing: border-box; margin: 34px 8px 22px 8px; padding: 0 0 2px 0; font-family: ${FONT}; text-align: left;">
+  ${kicker ? `<p style="display: inline-block; margin: 0 0 16px 0; padding: 10px 18px; border-radius: 18px; background-color: ${APPLE_BLUE}; font-size: 32px; line-height: 1.15; font-weight: 800; letter-spacing: 0; color: #ffffff; font-family: ${FONT};">${escapeHtml(kicker)}</p>` : ""}
+  <h2 style="margin: 0; padding: 0; font-size: 32px; line-height: 1.18; font-weight: 800; letter-spacing: 0; color: ${APPLE_BLUE};">${escapeHtml(title)}</h2>
   ${summary ? `<p style="margin: 10px 0 0 0; padding: 0; font-size: 13px; line-height: 1.75; letter-spacing: 0.3px; opacity: 0.62; text-align: justify;">${inlineFormat(summary)}</p>` : ""}
 </section>`;
 }
@@ -351,6 +377,7 @@ function renderBlock(block, spec) {
     subtitle,
     sectionTitle,
     card,
+    plainSection,
     editorNote,
     insightCards,
     metricGrid,

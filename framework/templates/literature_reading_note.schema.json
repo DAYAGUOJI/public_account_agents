@@ -1,0 +1,60 @@
+{
+  "mode": "paper_reading",
+  "paper": {
+    "noteNo": "No.01",
+    "title": "",
+    "journal": "",
+    "authors": "",
+    "keywords": [],
+    "publicationDate": "",
+    "doi": "",
+    "url": ""
+  },
+  "readingNote": {
+    "introduction": {
+      "motivation": [],
+      "goal": [],
+      "task": []
+    },
+    "relatedWork": [],
+    "methodology": [],
+    "implementation": []
+  },
+  "materials": {
+    "figures": [
+      {
+        "id": "FIG_01",
+        "caption": "",
+        "source": "",
+        "placeAfter": ""
+      }
+    ],
+    "tables": [
+      {
+        "id": "TABLE_01",
+        "title": "",
+        "headers": [],
+        "rows": []
+      }
+    ]
+  },
+  "requirements": {
+    "audience": "课题组公众号读者",
+    "tone": "清楚、克制、适合科研公众号",
+    "targetLength": "1200-1800字",
+    "clientRequests": [],
+    "mustKeep": [],
+    "avoid": [
+      "不把论文声称之外的内容写成结论",
+      "不把实验结果扩展为未经验证的应用承诺",
+      "不省略作者、期刊/会议、关键词"
+    ]
+  },
+  "qualityGates": [
+    "论文题目、作者、期刊/会议、关键词逐项核对",
+    "研究动机、研究目标、研究任务必须分别成段",
+    "相关研究、研究方法、应用实践不得混写",
+    "所有图表必须保留编号和人工替换说明",
+    "不自动发布，发布前必须人工预览"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "articleId": "M-01-llm-powered-hri",
+  "publicationTitle": "把大模型装进机器人，就会更好吗？一项 HRI 实验给出的答案",
+  "cover": {
+    "useCase": "ads-marketing",
+    "aspectRatio": "2.35:1",
+    "textInImage": false,
+    "brief": "用一个横向连续场景呈现同一个大语言模型依次通过文本、语音和实体机器人三种载体与人互动，强调具身性会改变用户期待与任务适配性。",
+    "prompt": "Create an ultra-wide 2.35:1 editorial cover image for a Chinese research public-account article about an HRI study comparing the same large language model across text, voice, and a physically embodied social robot. Show one continuous left-to-right composition: an abstract text conversation interface on the left, a clean voice waveform and speaker interaction in the middle, and a friendly white social robot facing a human participant on the right. A single Apple Blue information ribbon should connect all three embodiments, while the robot adds subtle gaze and gesture cues. The scene should communicate comparison and task-dependent tradeoffs, not claim that robots are universally better. Premium academic editorial illustration with realistic 3D materials, cool white and graphite neutrals, Apple Blue #0A84FF as the only accent, crisp studio lighting, generous negative space, strong mobile-thumbnail readability. No text, no letters, no numbers, no logos, no watermark, no purple gradient, no futuristic city, no humanoid face close-up, no extra robots, no clutter.",
+    "avoid": [
+      "文字、字母或数字",
+      "Logo 或水印",
+      "AI 紫色渐变",
+      "未来城市背景",
+      "夸张拟人脸",
+      "多余机器人",
+      "复杂小图标"
+    ],
+    "outputPath": "assets/cover-wechat-landscape.png"
+  }
+}
